@@ -18,7 +18,7 @@ sub_cat_tamp = []
 time_ser_tamp = []
 class aveg_time():
     def avg_time_func(self,f):
-        df = pd.read_csv(f'Atm_saprated_data//{f}.csv')
+        df = pd.read_csv(f'{f}.csv')
         df = df[['Tic_Rais_date_time', 'Numerical_Tic_Rais_date_time', 'Sub_Category', 'Terminal_ID']]
         atm_name1 = f.split("_")
         atm_name = atm_name1[-1].replace(".csv", "")
