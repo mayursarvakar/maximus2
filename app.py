@@ -177,50 +177,45 @@ def update_graphvalue2(value):
     sub_monthlydf = reng_subs().reng_sbs_func(sdf2)
 
 
-    for i in sub_monthlydf.columns.tolist():
-
-        if value==i:
-            fig = make_subplots(rows=2, cols=2, specs=[[{}, {}],
-                                                       [{"colspan": 2}, None]],
-                                subplot_titles=(f"Month wise {i} Bar", f"Month wise {i} Line", f"Month wise {i}  Bar-line"))
-            fig.add_trace(go.Bar(x=sub_monthlydf.index, y=sub_monthlydf[i],text=sub_monthlydf[i],name=i,),
-                          1, 1)
-
-            fig.add_trace(go.Scatter(x=sub_monthlydf.index, y=sub_monthlydf[i],
-                                     mode='lines',
-                                     name=i,),
-                          1, 2)
-
-            fig.add_trace(go.Bar(x=sub_monthlydf.index, y=sub_monthlydf[i],name=i, ),
-                          2, 1)
-
-            fig.add_trace(go.Scatter(x=sub_monthlydf.index, y=sub_monthlydf[i],
-                                     mode='lines',
-                                     name=i,),
-                          2, 1)
-
-            fig.update_layout({"plot_bgcolor": "rgba(235, 254, 255, 0.8)","paper_bgcolor": "rgba(215, 253, 255, 0.8)"})
-
-            return fig
-
-    if value=="All Sub-Category" :
+    if value == "All Sub-Category":
         fig = make_subplots(rows=2, cols=1)
         for i in sub_monthlydf.columns.tolist():
             # print(i)
-            fig.add_trace(go.Bar(x=sub_monthlydf.index, y=sub_monthlydf[i], text=sub_monthlydf[i],name=str(i), ),
+            fig.add_trace(go.Bar(x=sub_monthlydf.index, y=sub_monthlydf[i], text=sub_monthlydf[i], name=str(i), ),
                           1, 1)
             fig.add_trace(go.Scatter(x=sub_monthlydf.index, y=sub_monthlydf[i],
                                      mode='lines',
                                      name=str(i), ),
                           2, 1)
 
-            fig.update_layout({"plot_bgcolor": "rgba(235, 254, 255, 0.8)","paper_bgcolor": "rgba(215, 253, 255, 0.8)"})
+            fig.update_layout({"plot_bgcolor": "rgba(235, 254, 255, 0.8)", "paper_bgcolor": "rgba(215, 253, 255, 0.8)"})
 
-            return fig
+
 
     else:
-        fig = make_subplots(rows=2, cols=2)
-        return  fig
+        fig = make_subplots(rows=2, cols=2, specs=[[{}, {}],
+                                                   [{"colspan": 2}, None]],
+                            subplot_titles=(
+                            f"Month wise {value} Bar", f"Month wise {value} Line", f"Month wise {value}  Bar-line"))
+        fig.add_trace(go.Bar(x=sub_monthlydf.index, y=sub_monthlydf[value], text=sub_monthlydf[value], name=value, ),
+                      1, 1)
+
+        fig.add_trace(go.Scatter(x=sub_monthlydf.index, y=sub_monthlydf[value],
+                                 mode='lines',
+                                 name=value, ),
+                      1, 2)
+
+        fig.add_trace(go.Bar(x=sub_monthlydf.index, y=sub_monthlydf[value], name=value, ),
+                      2, 1)
+
+        fig.add_trace(go.Scatter(x=sub_monthlydf.index, y=sub_monthlydf[value],
+                                 mode='lines',
+                                 name=value, ),
+                      2, 1)
+
+        fig.update_layout({"plot_bgcolor": "rgba(235, 254, 255, 0.8)", "paper_bgcolor": "rgba(215, 253, 255, 0.8)"})
+
+    return fig
 
 
 
