@@ -178,7 +178,7 @@ def update_graphvalue2(value):
     # print(sdf2['Terminal_ID'])
     sub_monthlydf = reng_subs().reng_sbs_func(sdf2)
 
-    if value == "All Sub-Category":
+    if value == "All Sub-Category"  or value=="Dishh" or value==None :
         fig = make_subplots(rows=2, cols=1)
         for i in sub_monthlydf.columns.tolist():
             # print(i)
