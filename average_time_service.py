@@ -1,4 +1,3 @@
-from tkinter import *
 import glob
 from dash import html
 import dash_table
