@@ -65,7 +65,7 @@ def update_output(clicks, input_value):
 
     if clicks is not None and input_value !='Enter ATM Name':
 
-        sdf = pd.read_csv(f'Atm_saprated_data//{input_value}.csv')
+        sdf = pd.read_csv(f'{input_value}.csv')
 
 
 
@@ -173,7 +173,7 @@ def update_graphvalue2(value):
 
     atm_name_var=tamp_atm_name[-1]
     print(f"==========atm_name{atm_name_var}")
-    sdf2=pd.read_csv(f'Atm_saprated_data\\{atm_name_var}.csv')
+    sdf2=pd.read_csv(f'{atm_name_var}.csv')
 
     # print("===========sumnonthdf=========================================")
 
