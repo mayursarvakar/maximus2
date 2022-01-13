@@ -181,7 +181,7 @@ def update_graphvalue2(value):
 
 
     # if value == "All Sub-Category" or value=="Dishh" or value==None:
-    if value == "All Sub-Category":
+    if value == "All Sub-Category" or value=="Dishh" :
 
         fig = make_subplots(rows=2, cols=1)
         for i in sub_monthlydf.columns.tolist():
